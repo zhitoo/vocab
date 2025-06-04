@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Contracts\ExerciseGenerationContract;
 use App\Contracts\ProgressUpdateContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\V1\SubmitExerciseAnswerRequest;
 use App\Http\Resources\Api\V1\ExerciseResource;
 use App\Repositories\ExerciseRepository;
 use App\Rules\Api\V1\Exercise\ExerciseAnswerValidation;
@@ -35,11 +36,9 @@ class ExerciseController extends Controller
         return ExerciseResource::make($exercise);
     }
 
-    public function submitExerciseAnswer(Request $request, int $exerciseId)
+    public function submitExerciseAnswer(SubmitExerciseAnswerRequest $request, int $exerciseId)
     {
-        $answers = $request->validate(['answers' => ['required', 'array', new ExerciseAnswerValidation()]]);
-        $answers = $answers['answers'];
-        $this->progressUpdate->updateUserProgress($exerciseId, $answers);
+        $this->progressUpdate->updateUserProgress($exerciseId, $request->input('answers'));
         return response()->json(['message' => 'Answers submitted successfully']);
     }
 }
