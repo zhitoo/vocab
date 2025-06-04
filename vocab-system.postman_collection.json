@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "02053c8c-ab33-4fa2-9067-057a4f154bb5",
+		"name": "vocab-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9021483"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mobile",
+							"value": "09227121074",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "a88888888a",
+							"type": "text"
+						},
+						{
+							"key": "verification_code",
+							"value": "740344",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}login",
+					"host": [
+						"{{base_url}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get exercise",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "salam",
+							"type": "text"
+						},
+						{
+							"key": "family",
+							"value": "chetori khobi check khabar",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}exercise/1",
+					"host": [
+						"{{base_url}}exercise"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "answer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "answers[2]",
+							"value": "27",
+							"type": "text"
+						},
+						{
+							"key": "answers[10]",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "answers[6]",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "answers[3]",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "answers[5]",
+							"value": "21",
+							"type": "text"
+						},
+						{
+							"key": "answers[4]",
+							"value": "26",
+							"type": "text"
+						},
+						{
+							"key": "answers[9]",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "answers[1]",
+							"value": "36",
+							"type": "text"
+						},
+						{
+							"key": "answers[8]",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "answers[7]",
+							"value": "18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}exercise/2/answer",
+					"host": [
+						"{{base_url}}exercise"
+					],
+					"path": [
+						"2",
+						"answer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "make exercise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "salam",
+							"type": "text"
+						},
+						{
+							"key": "family",
+							"value": "chetori khobi check khabar",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}exercise",
+					"host": [
+						"{{base_url}}exercise"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8001/api/v1/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "1|IqWmyV4AxHDKoPC9v9uWnG8NrXbRX0xzZopasraxe3e079a1",
+			"type": "string"
+		}
+	]
+}
